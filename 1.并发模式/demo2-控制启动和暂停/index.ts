@@ -73,4 +73,7 @@ const { start, pause } = processTasks(task, task, task, task, task);
 start();
 setTimeout(() => {
   pause();
+  setTimeout(() => {
+    start();
+  }, 1000);
 }, 4000);
