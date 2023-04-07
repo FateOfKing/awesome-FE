@@ -44,8 +44,14 @@ let maxNum: number,
 const result: any[] = [];
 
 // addProcessTask函数用于向任务列表中添加任务
-function addProcessTask(task: Task) {
+function addProcessTask(task: Task, autoStart = true) {
   totalTaskList.push(task);
+  // 如果autoStart为true，则调用start函数启动任务处理器
+  if (autoStart) {
+    setTimeout(() => {
+      start();
+    }, 0);
+  }
 }
 
 // setMaxNum函数用于设置最大并发数，并分别将其赋值给maxNum和currentNum变量
@@ -118,6 +124,6 @@ for (let i = 0; i < 10; i++) {
 setMaxNum(2);
 
 //4s后暂停任务处理器
-setTimeout(() => {
-  pause();
-}, 4000);
+// setTimeout(() => {
+//   pause();
+// }, 4000);
