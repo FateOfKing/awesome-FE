@@ -7,24 +7,6 @@
 // 声明一个泛型函数类型Task
 type Task<T = any> = () => Promise<T>;
 
-// 实现lodash中的防抖函数
-// 函数接受一个func函数和wait时间周期作为参数
-function debounce(func: Function, wait: number) {
-  let timer: number;
-  // 返回一个匿名函数
-  return function (...args: any[]) {
-    if (timer) {
-      // 如果timer存在则清除计时器
-      clearTimeout(timer);
-    }
-    // 创建一个新的计时器
-    timer = setTimeout(() => {
-      // 在wait时间周期后执行传入的函数func，并传入参数args
-      func(...args);
-    }, wait);
-  };
-}
-
 // 声明一个任务列表totalTaskList，用于存储所有待执行的任务
 const totalTaskList: Task[] = [];
 
